@@ -55,46 +55,47 @@ def use_dataset(name, version=1, p_threshold=0.05):
         except Exception:
             non_normal_numeric.append(col)
 
-    # Pipelines
-    normal_pipeline = Pipeline([
-        ("scaler", StandardScaler())
-    ])
+    # Factory function
+    def make_preprocessor():
 
-    non_normal_pipeline = Pipeline([
-        ("power", PowerTransformer(method="yeo-johnson"))
-    ])
+        normal_pipeline = Pipeline([
+            ("scaler", StandardScaler())
+        ])
 
-    nominal_pipeline = Pipeline([
-        (
-            "onehot",
-            OneHotEncoder(
-                handle_unknown="ignore",
-                sparse_output=False
+        non_normal_pipeline = Pipeline([
+            ("power", PowerTransformer(method="yeo-johnson"))
+        ])
+
+        nominal_pipeline = Pipeline([
+            (
+                "onehot",
+                OneHotEncoder(
+                    handle_unknown="ignore",
+                    sparse_output=False
+                )
             )
-        )
-    ])
+        ])
 
-    # Preprocessor
-    preprocessor = ColumnTransformer([
+        return ColumnTransformer([
 
-        (
-            "normal_num",
-            normal_pipeline,
-            normal_numeric
-        ),
+            (
+                "normal_num",
+                normal_pipeline,
+                normal_numeric
+            ),
 
-        (
-            "non_normal_num",
-            non_normal_pipeline,
-            non_normal_numeric
-        ),
+            (
+                "non_normal_num",
+                non_normal_pipeline,
+                non_normal_numeric
+            ),
 
-        (
-            "nominal",
-            nominal_pipeline,
-            nominal_features
-        )
+            (
+                "nominal",
+                nominal_pipeline,
+                nominal_features
+            )
 
-    ])
+        ])
 
-    return X, y, preprocessor
+    return X, y, make_preprocessor

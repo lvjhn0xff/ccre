@@ -1,7 +1,9 @@
 from utils.datasets import * 
 
-X, y, fs = use_dataset("titanic")
+X, y, fs = use_dataset("Telco-Customer-Churn")
 
-X_prep = fs.fit_transform(X) 
+prep = fs()
+
+X_prep = prep.fit_transform(X) 
 
 print(X_prep)
