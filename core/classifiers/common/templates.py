@@ -84,6 +84,13 @@ from xgboost import (
     XGBRFClassifier,
 )
 
+# =========================================================
+# GLOBAL VERBOSE DEFAULTS
+# =========================================================
+
+DEFAULT_VERBOSE = 1
+DEFAULT_VERBOSITY = 1
+
 
 # =========================================================
 # TEMPLATE HELPERS
@@ -108,10 +115,10 @@ def use_LogisticRegression(**overrides: Any) -> LogisticRegression:
         "solver": "lbfgs",
         "max_iter": 1000,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return LogisticRegression(**defaults)
-
 
 
 def use_LogisticRegressionCV(**overrides: Any) -> LogisticRegressionCV:
@@ -119,10 +126,10 @@ def use_LogisticRegressionCV(**overrides: Any) -> LogisticRegressionCV:
         "cv": 5,
         "max_iter": 1000,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return LogisticRegressionCV(**defaults)
-
 
 
 def use_PassiveAggressiveClassifier(**overrides: Any) -> PassiveAggressiveClassifier:
@@ -130,10 +137,10 @@ def use_PassiveAggressiveClassifier(**overrides: Any) -> PassiveAggressiveClassi
         "C": 1.0,
         "max_iter": 1000,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return PassiveAggressiveClassifier(**defaults)
-
 
 
 def use_Perceptron(**overrides: Any) -> Perceptron:
@@ -141,10 +148,10 @@ def use_Perceptron(**overrides: Any) -> Perceptron:
         "max_iter": 1000,
         "eta0": 1.0,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return Perceptron(**defaults)
-
 
 
 def use_RidgeClassifier(**overrides: Any) -> RidgeClassifier:
@@ -156,7 +163,6 @@ def use_RidgeClassifier(**overrides: Any) -> RidgeClassifier:
     return RidgeClassifier(**defaults)
 
 
-
 def use_RidgeClassifierCV(**overrides: Any) -> RidgeClassifierCV:
     defaults = {
         "alphas": (0.1, 1.0, 10.0),
@@ -165,12 +171,12 @@ def use_RidgeClassifierCV(**overrides: Any) -> RidgeClassifierCV:
     return RidgeClassifierCV(**defaults)
 
 
-
 def use_SGDClassifier(**overrides: Any) -> SGDClassifier:
     defaults = {
         "loss": "log_loss",
         "max_iter": 1000,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return SGDClassifier(**defaults)
@@ -187,10 +193,10 @@ def use_SVC(**overrides: Any) -> SVC:
         "kernel": "rbf",
         "probability": True,
         "random_state": 42,
+        "verbose": True,
     }
     defaults.update(overrides)
     return SVC(**defaults)
-
 
 
 def use_NuSVC(**overrides: Any) -> NuSVC:
@@ -199,10 +205,10 @@ def use_NuSVC(**overrides: Any) -> NuSVC:
         "kernel": "rbf",
         "probability": True,
         "random_state": 42,
+        "verbose": True,
     }
     defaults.update(overrides)
     return NuSVC(**defaults)
-
 
 
 def use_LinearSVC(**overrides: Any) -> LinearSVC:
@@ -210,6 +216,7 @@ def use_LinearSVC(**overrides: Any) -> LinearSVC:
         "C": 1.0,
         "max_iter": 5000,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return LinearSVC(**defaults)
@@ -229,7 +236,6 @@ def use_KNeighborsClassifier(**overrides: Any) -> KNeighborsClassifier:
     return KNeighborsClassifier(**defaults)
 
 
-
 def use_RadiusNeighborsClassifier(**overrides: Any) -> RadiusNeighborsClassifier:
     defaults = {
         "radius": 1.0,
@@ -237,7 +243,6 @@ def use_RadiusNeighborsClassifier(**overrides: Any) -> RadiusNeighborsClassifier
     }
     defaults.update(overrides)
     return RadiusNeighborsClassifier(**defaults)
-
 
 
 def use_NearestCentroid(**overrides: Any) -> NearestCentroid:
@@ -274,7 +279,6 @@ def use_DecisionTreeClassifier(**overrides: Any) -> DecisionTreeClassifier:
     return DecisionTreeClassifier(**defaults)
 
 
-
 def use_ExtraTreeClassifier(**overrides: Any) -> ExtraTreeClassifier:
     defaults = {
         "random_state": 42,
@@ -298,15 +302,14 @@ def use_AdaBoostClassifier(**overrides: Any) -> AdaBoostClassifier:
     return AdaBoostClassifier(**defaults)
 
 
-
 def use_BaggingClassifier(**overrides: Any) -> BaggingClassifier:
     defaults = {
         "n_estimators": 100,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return BaggingClassifier(**defaults)
-
 
 
 def use_ExtraTreesClassifier(**overrides: Any) -> ExtraTreesClassifier:
@@ -314,10 +317,10 @@ def use_ExtraTreesClassifier(**overrides: Any) -> ExtraTreesClassifier:
         "n_estimators": 300,
         "random_state": 42,
         "n_jobs": -1,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return ExtraTreesClassifier(**defaults)
-
 
 
 def use_GradientBoostingClassifier(**overrides: Any) -> GradientBoostingClassifier:
@@ -326,10 +329,10 @@ def use_GradientBoostingClassifier(**overrides: Any) -> GradientBoostingClassifi
         "learning_rate": 0.05,
         "max_depth": 3,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return GradientBoostingClassifier(**defaults)
-
 
 
 def use_HistGradientBoostingClassifier(**overrides: Any) -> HistGradientBoostingClassifier:
@@ -338,10 +341,10 @@ def use_HistGradientBoostingClassifier(**overrides: Any) -> HistGradientBoosting
         "max_iter": 200,
         "max_depth": None,
         "random_state": 42,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return HistGradientBoostingClassifier(**defaults)
-
 
 
 def use_RandomForestClassifier(**overrides: Any) -> RandomForestClassifier:
@@ -351,6 +354,7 @@ def use_RandomForestClassifier(**overrides: Any) -> RandomForestClassifier:
         "min_samples_split": 2,
         "random_state": 42,
         "n_jobs": -1,
+        "verbose": DEFAULT_VERBOSE,
     }
     defaults.update(overrides)
     return RandomForestClassifier(**defaults)
@@ -369,14 +373,12 @@ def use_BernoulliNB(**overrides: Any) -> BernoulliNB:
     return BernoulliNB(**defaults)
 
 
-
 def use_CategoricalNB(**overrides: Any) -> CategoricalNB:
     defaults = {
         "alpha": 1.0,
     }
     defaults.update(overrides)
     return CategoricalNB(**defaults)
-
 
 
 def use_ComplementNB(**overrides: Any) -> ComplementNB:
@@ -387,12 +389,10 @@ def use_ComplementNB(**overrides: Any) -> ComplementNB:
     return ComplementNB(**defaults)
 
 
-
 def use_GaussianNB(**overrides: Any) -> GaussianNB:
     defaults = {}
     defaults.update(overrides)
     return GaussianNB(**defaults)
-
 
 
 def use_MultinomialNB(**overrides: Any) -> MultinomialNB:
@@ -415,6 +415,7 @@ def use_MLPClassifier(**overrides: Any) -> MLPClassifier:
         "solver": "adam",
         "max_iter": 1000,
         "random_state": 42,
+        "verbose": True,
     }
     defaults.update(overrides)
     return MLPClassifier(**defaults)
@@ -429,25 +430,29 @@ def use_LabelPropagation(**overrides: Any) -> LabelPropagation:
     defaults = {
         "kernel": "rbf",
         "gamma": 20,
+        "max_iter": 1000,
     }
     defaults.update(overrides)
     return LabelPropagation(**defaults)
-
 
 
 def use_LabelSpreading(**overrides: Any) -> LabelSpreading:
     defaults = {
         "kernel": "rbf",
         "gamma": 20,
+        "max_iter": 1000,
     }
     defaults.update(overrides)
     return LabelSpreading(**defaults)
 
 
-
-def use_SelfTrainingClassifier(base_estimator=None, **overrides: Any) -> SelfTrainingClassifier:
+def use_SelfTrainingClassifier(
+    base_estimator=None,
+    **overrides: Any,
+) -> SelfTrainingClassifier:
     defaults = {
         "estimator": base_estimator or LogisticRegression(),
+        "verbose": True,
     }
     defaults.update(overrides)
     return SelfTrainingClassifier(**defaults)
@@ -462,7 +467,6 @@ def use_LinearDiscriminantAnalysis(**overrides: Any) -> LinearDiscriminantAnalys
     defaults = {}
     defaults.update(overrides)
     return LinearDiscriminantAnalysis(**defaults)
-
 
 
 def use_QuadraticDiscriminantAnalysis(**overrides: Any) -> QuadraticDiscriminantAnalysis:
@@ -481,6 +485,56 @@ def use_QuadraticDiscriminantAnalysis(**overrides: Any) -> QuadraticDiscriminant
 def use_DummyClassifier(**overrides: Any) -> DummyClassifier:
     defaults = {
         "strategy": "most_frequent",
+        "random_state": 42,
+    }
+    defaults.update(overrides)
+    return DummyClassifier(**defaults)
+
+
+def use_DummyClassifierMostFrequent(**overrides: Any) -> DummyClassifier:
+    defaults = {
+        "strategy": "most_frequent",
+        "random_state": 42,
+    }
+    defaults.update(overrides)
+    return DummyClassifier(**defaults)
+
+
+def use_DummyClassifierPrior(**overrides: Any) -> DummyClassifier:
+    defaults = {
+        "strategy": "prior",
+        "random_state": 42,
+    }
+    defaults.update(overrides)
+    return DummyClassifier(**defaults)
+
+
+def use_DummyClassifierStratified(**overrides: Any) -> DummyClassifier:
+    defaults = {
+        "strategy": "stratified",
+        "random_state": 42,
+    }
+    defaults.update(overrides)
+    return DummyClassifier(**defaults)
+
+
+def use_DummyClassifierUniform(**overrides: Any) -> DummyClassifier:
+    defaults = {
+        "strategy": "uniform",
+        "random_state": 42,
+    }
+    defaults.update(overrides)
+    return DummyClassifier(**defaults)
+
+
+def use_DummyClassifierConstant(
+    constant: Any = 1,
+    **overrides: Any,
+) -> DummyClassifier:
+    defaults = {
+        "strategy": "constant",
+        "constant": constant,
+        "random_state": 42,
     }
     defaults.update(overrides)
     return DummyClassifier(**defaults)
@@ -502,10 +556,10 @@ def use_XGBClassifier(**overrides: Any) -> XGBClassifier:
         "eval_metric": "logloss",
         "random_state": 42,
         "n_jobs": -1,
+        "verbosity": DEFAULT_VERBOSITY,
     }
     defaults.update(overrides)
     return XGBClassifier(**defaults)
-
 
 
 def use_XGBRFClassifier(**overrides: Any) -> XGBRFClassifier:
@@ -516,10 +570,10 @@ def use_XGBRFClassifier(**overrides: Any) -> XGBRFClassifier:
         "colsample_bynode": 0.8,
         "random_state": 42,
         "n_jobs": -1,
+        "verbosity": DEFAULT_VERBOSITY,
     }
     defaults.update(overrides)
     return XGBRFClassifier(**defaults)
-
 
 # =========================================================
 # MODEL FACTORY MAP
@@ -581,10 +635,358 @@ MODEL_FACTORIES: dict[str, Any] = {
 
     # Dummy
     "DummyClassifier": lambda **kw: use_DummyClassifier(**kw),
+    "DummyClassifierMostFrequent": lambda **kw: use_DummyClassifierMostFrequent(**kw),
+    "DummyClassifierPrior": lambda **kw: use_DummyClassifierPrior(**kw),
+    "DummyClassifierStratified": lambda **kw: use_DummyClassifierStratified(**kw),
+    "DummyClassifierUniform": lambda **kw: use_DummyClassifierUniform(**kw),
+    "DummyClassifierConstant": lambda **kw: use_DummyClassifierConstant(**kw),
 
     # XGBoost
     "XGBClassifier": lambda **kw: use_XGBClassifier(**kw),
     "XGBRFClassifier": lambda **kw: use_XGBRFClassifier(**kw),
+}
+
+
+# =========================================================
+# PREPROCESSOR ARGUMENT MAP
+# =========================================================
+
+COMMON_PREPROCESSOR_SETUP: dict[str, dict[str, Any]] = {
+
+    # =====================================================
+    # LINEAR MODELS
+    # =====================================================
+
+    "LogisticRegression": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "LogisticRegressionCV": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "PassiveAggressiveClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "Perceptron": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "RidgeClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "RidgeClassifierCV": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "SGDClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # SVM
+    # =====================================================
+
+    "SVC": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "NuSVC": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "LinearSVC": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # NEIGHBORS
+    # =====================================================
+
+    "KNeighborsClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "RadiusNeighborsClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "NearestCentroid": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # GAUSSIAN PROCESS
+    # =====================================================
+
+    "GaussianProcessClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # TREES
+    # =====================================================
+
+    "DecisionTreeClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "ExtraTreeClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    # =====================================================
+    # ENSEMBLES
+    # =====================================================
+
+    "AdaBoostClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "BaggingClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "ExtraTreesClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "GradientBoostingClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "HistGradientBoostingClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "RandomForestClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    # =====================================================
+    # NAIVE BAYES
+    # =====================================================
+
+    "BernoulliNB": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "linear_nn",
+    },
+
+    "CategoricalNB": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "linear_nn",
+    },
+
+    "ComplementNB": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "linear_nn",
+    },
+
+    "GaussianNB": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "MultinomialNB": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # NEURAL NETWORKS
+    # =====================================================
+
+    "MLPClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # SEMI-SUPERVISED
+    # =====================================================
+
+    "LabelPropagation": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "LabelSpreading": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "SelfTrainingClassifier": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # DISCRIMINANT ANALYSIS
+    # =====================================================
+
+    "LinearDiscriminantAnalysis": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    "QuadraticDiscriminantAnalysis": {
+        "use_onehot": True,
+        "use_scaling": True,
+        "use_power": True,
+        "model_type": "linear_nn",
+    },
+
+    # =====================================================
+    # DUMMY
+    # =====================================================
+
+    "DummyClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "DummyClassifierMostFrequent": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "DummyClassifierPrior": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "DummyClassifierStratified": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "DummyClassifierUniform": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "DummyClassifierConstant": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    # =====================================================
+    # XGBOOST
+    # =====================================================
+
+    "XGBClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    },
+
+    "XGBRFClassifier": {
+        "use_onehot": True,
+        "use_scaling": False,
+        "use_power": False,
+        "model_type": "tree",
+    }
 }
 
 
