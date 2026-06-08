@@ -178,7 +178,28 @@
                 - Histogram of Residuals 
                 - Actual vs Predicted Graphs 
                 - If data is 2D: Contour Plots 
-                
+
+        - Experiment Level Aggregations (Across Folds)
+            - Metric Summaries (Summary Statistics)
+                - Mean
+                - Median
+                - Maximum
+                - Minimum
+                - Range 
+                - Standard Deviation
+                - Variance 
+                - Coefficient of Variation
+                - Kurtosis 
+                - Skewness
+                - Normality Tests 
+                - Percentiles 
+                    - 1 to 100
+            - Charts 
+                - Histogram 
+                - Fold Ranking (Bar Chart)
+
+
+
     - Reporters & Callbacks
         - JSON Reporter 
         - Text Reporter 
