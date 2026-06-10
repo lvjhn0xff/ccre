@@ -1,7 +1,39 @@
 [ ] Gather custom objective functions (Top 30) for optimization algorithms. 
     - 10 : Unimodal
-    - 10 : Bimodal
-    - 10 : Multi-modal
+        1.  Sphere 
+        2.  Schwefel 2.2 
+        3.  Schwefel 2.1 
+        4.  Schwefel 2.2
+        5.  Sum of Squares 
+        6.  Step 
+        7.  Quartic
+        8.  Zakharov 
+        9.  Dixon-Price
+        10. Rosenbrock
+    
+    - 20 : Multi-modal
+        1.  Rastrigin
+        2.  Ackley
+        3.  Griewank
+        4.  Schwefel 2.26
+        5.  Levy
+        6.  Michalewicz
+        7.  Alpine Function No. 1
+        8.  Salomon
+        9.  Drop-wave
+        10  Shubert
+        11. Easom
+        12. Cross-in-Tray
+        13. Holder Table
+        14. Egg Holder
+        15. Shekel5
+        16. Shekel7
+        17. Shekel10
+        18. ShekelsFoxholes
+        19. Xin-She Yang N.4
+        20. Weierstrass
+        21. Langerman
+        22. Perm
 
 [ ] Prepare adapter classes for optimization algorithms:
     - RandomSearch  Q12VG
@@ -192,8 +224,8 @@
                 - Kurtosis 
                 - Skewness
                 - Normality Tests 
-                - Percentiles 
-                    - 1 to 100
+                - Percentiles: 1% 5% 10% 20% 25% 50% 75% 80% 90% 95% 100%
+                - Actual Raw Scores (Per Fold)
             - Charts 
                 - Histogram 
                 - Fold Ranking (Bar Chart)
