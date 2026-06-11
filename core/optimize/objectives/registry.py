@@ -10,3 +10,5 @@ def register_objective(name, module):
 autoload_folder("unimodal", register_objective)
 autoload_folder("multimodal", register_objective) 
 
+
+
