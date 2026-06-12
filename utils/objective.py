@@ -35,13 +35,17 @@ class Objective:
         # Log interval. 
         self.log_interval = log_interval
 
+
+    def __call__(self, solution): 
+        return self.call(solution)
+
     def call(self, solution): 
         # Get score.
         score = self.handler(solution)
 
         # Log score to history.
         if self.use_log and self.evals % self.log_interval == 0:
-            self.log.append(score)
+            self.log.append(float(score))
 
         # Register solution to heap.
         self.solutions.push(self.evals, tuple(solution), score)

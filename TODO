@@ -1,4 +1,4 @@
-[ ] Gather custom objective functions (Top 30) for optimization algorithms. 
+[/] Gather custom objective functions (Top 30) for optimization algorithms. 
     - 10 : Unimodal
         1.  Sphere 
         2.  Schwefel 2.2 
@@ -35,16 +35,10 @@
         21. Langerman
         22. Perm
 
-[ ] Prepare adapter classes for optimization algorithms:
-    - RandomSearch  Q12VG
-    - SteepestAscentOptimizer 
-    - SimulatedAnnealing
-    - ParticleSwarmOptimizer 
-    - DifferentialEvolutionOptimizer
-    - GeneticAlgorithmOptimizer 
-    - CMAESOptimizer
-    - FreeSearchOptimizer 
-    - Note: Consider categorical, ordinal, and ratio dimensions. 
+[/] Prepare adapter for optimization algorithms:
+    - Happened to find a useful third-party library gradient-free-optimizers 
+      which contains most common optimization algorithms and provides user-friendly 
+      API for different methods - uniform APIs. 
 
 [ ] Create adapter classes for APIs of common dataset repositories. 
     - sklearn synthetic/structured datasets
